@@ -1,0 +1,15 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div *ngFor="let book of books" (click)="onBookClick(book.id)" class="relative border-2 border-neutral-300 group duration-500 cursor-pointer overflow-hidden text-gray-50 h-72 w-56 rounded-2xl hover:duration-700 duration-700">
+    <div class="w-full h-full bg-blue-50 text-gray-800">
+      <img [src]="book.image" alt="" class="w-full h-full object-cover">
+    </div>
+    <div class="absolute bg-gray-50 -bottom-24 w-full p-3 flex flex-col gap-1 group-hover:bottom-0 group-hover:duration-600 duration-500">
+      <span class="text-black font-bold text-xl">{{book.author.name}}</span>
+      <span class="text-gray-800 font-bold text-3xl">{{book.title}}</span>
+      <p class="text-neutral-800">{{book.publisher.name}}</p>
+      <p class="text-neutral-800">{{book.publisher.address}}</p>
+      <button (click)="onDeleteClick(book.id, $event)" class="bg-red-500 text-white px-2 py-1 rounded mt-2">Eliminar</button>
+    </div>
+  </div>
+</div>
+
